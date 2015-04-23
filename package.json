@@ -2,18 +2,30 @@
   "name": "react-flux-cart",
   "version": "1.0.0",
   "description": "Dependencies for react-flux-cart",
-  "main": "index.js",
+  "main": "js/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "watchify -o dist/bundle.js -v -d .",
+    "build": "browserify . > dist/bundle.js"
   },
   "author": "Cory Reed <swashcap@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "react": "^0.13.2"
+    "browserify": "^9.0.8",
+    "envify": "^3.4.0",
+    "react": "^0.13.2",
+    "reactify": "^1.1.0",
+    "uglifyjs": "^2.4.10",
+    "watchify": "^3.1.2"
   },
   "dependencies": {
     "flux": "^2.0.1",
     "lodash": "^3.7.0",
     "react": "^0.13.2"
+  },
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
   }
 }
