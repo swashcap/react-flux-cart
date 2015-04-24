@@ -12,6 +12,6 @@ CartAPI.getProductData();
 
 // Render `FluxCartApp` controller view
 React.render(
-    <FluxCartApp />
+    <FluxCartApp />,
     document.getElementById('flux-cart')
 );

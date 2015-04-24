@@ -8,7 +8,7 @@ var FluxCart = React.createClass({
     openCart: function () {
         FluxCartActions.updateCartVisible(true);
     },
-    removeFrontCart: function (sku) {
+    removeFromCart: function (sku) {
         FluxCartActions.removeFromCart(sku);
         this.closeCart();
     },
@@ -19,9 +19,9 @@ var FluxCart = React.createClass({
         return (
             <div className={"flux-cart " + this.props.visible ? 'active' : ''}>
                 <div className="mini-cart">
-                    <button type="button" className="close-cart" onClick={this.closeCart>x</button>
+                    <button type="button" className="close-cart" onClick={this.closeCart}>x</button>
                     <ul>
-                        {Object.keys(product).map(function (product) {
+                        {Object.keys(products).map(function (product) {
                             return (
                                 <li key={product}>
                                     <h1 className="name">{products[product].name}</h1>
@@ -30,7 +30,7 @@ var FluxCart = React.createClass({
                                     <button
                                         type="button"
                                         className="remove-item"
-                                        onClick={self.removeFromCart.bind(self, product)}>Remov</button>
+                                        onClick={self.removeFromCart.bind(self, product)}>Remove</button>
                                 </li>
                             );
                         })}
