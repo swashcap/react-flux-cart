@@ -28,7 +28,7 @@ var ProductStore = _.extend({}, EventEmitter.prototype, {
 
     // Emit change event
     emitChange: function () {
-        this.emit('change')
+        this.emit('change');
     },
 
     // Add change listener
