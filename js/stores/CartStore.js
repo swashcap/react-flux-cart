@@ -33,13 +33,11 @@ var CartStore = _.extend({}, EventEmitter.prototype, {
     // Return cart cost total
     getCartTotal: function () {
         var total = 0;
-
         for (var product in _products) {
             if (_products.hasOwnProperty(product)) {
                 total += _products[product].price * _products[product].quantity;
             }
         }
-
         return total.toFixed(2);
     },
 
@@ -75,7 +73,7 @@ AppDispatcher.register(function (payload) {
         case FluxCartConstants.CART_VISIBLE:
             setCartVisible(action.cartVisible);
             break;
-        case FluxCartConstants.CART_ADD:
+        case FluxCartConstants.CART_REMOVE:
             removeItem(action.sku);
             break;
         default:
@@ -86,7 +84,5 @@ AppDispatcher.register(function (payload) {
 
     return true;
 });
-
-
 
 module.exports = CartStore;
